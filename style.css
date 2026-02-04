@@ -1,0 +1,126 @@
+:root {
+  --grid-size: 20;
+  --cell-size: min(2.5vh, 2.5vw);
+  --snake-color: #1f6feb;
+  --food-color: #f85149;
+  --bg: #0d1117;
+  --grid-color: #161b22;
+  --text: #e6edf3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 640px;
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#score {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+#status {
+  color: #8b949e;
+}
+
+.board {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border: 1px solid #30363d;
+  background: var(--grid-color);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), 1fr);
+  grid-template-rows: repeat(var(--grid-size), 1fr);
+}
+
+.cell {
+  border: 1px solid #0d1117;
+  background: #11161f;
+}
+
+.cell.snake {
+  background: var(--snake-color);
+}
+
+.cell.food {
+  background: var(--food-color);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 50px);
+  gap: 8px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.controls button {
+  background: #21262d;
+  color: var(--text);
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.controls button:active,
+.controls button:focus-visible {
+  background: #30363d;
+  outline: none;
+}
+
+.controls .spacer {
+  visibility: hidden;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.actions button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #30363d;
+  background: #238636;
+  color: white;
+  cursor: pointer;
+}
+
+.actions button:active,
+.actions button:focus-visible {
+  background: #2ea043;
+  outline: none;
+}
+
+@media (min-width: 720px) {
+  :root {
+    --cell-size: 28px;
+  }
+}
